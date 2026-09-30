@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maiara — Liderança em Engenharia & Qualidade</title>
+  <meta name="description" content="Maiara — líder de engenharia e qualidade em e-commerce. Modernização de aplicativos, Flutter, automação de testes mobile e gestão de times.">
+  <meta property="og:title" content="Maiara — Liderança em Engenharia & Qualidade">
+  <meta property="og:description" content="Modernização de sistemas legados, apps em Flutter e automação de testes mobile.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-alt: #10161d;
+      --card: #141b24;
+      --border: #222c38;
+      --text: #e6edf3;
+      --muted: #8b98a8;
+      --accent: #4ade80;
+      --accent-2: #38bdf8;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+      --sans: "Inter", system-ui, -apple-system, sans-serif;
+      --max: 1040px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Navegação */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-family: var(--mono); font-weight: 500; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.92rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* Hero */
+    .hero { padding: 110px 0 90px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at 30% 40%, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 30% 40%, black 0%, transparent 70%);
+      opacity: 0.35; pointer-events: none;
+    }
+    .hero .container { position: relative; }
+    .prompt { font-family: var(--mono); color: var(--accent); font-size: 0.95rem; margin-bottom: 18px; }
+    .prompt .cursor { display: inline-block; width: 9px; height: 1.1em; background: var(--accent); vertical-align: text-bottom; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .hero h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin-bottom: 32px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .tag { font-family: var(--mono); font-size: 0.78rem; padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: var(--bg-alt); }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; transition: transform .15s ease, background .15s ease; }
+    .btn:hover { text-decoration: none; transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #06210f; }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { background: var(--card); }
+
+    /* Seções */
+    section { padding: 90px 0; }
+    section.alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-label { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; margin-bottom: 8px; }
+    h2 { font-size: clamp(1.7rem, 3.5vw, 2.3rem); letter-spacing: -0.01em; margin-bottom: 28px; }
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+    .about-grid p { color: var(--muted); margin-bottom: 16px; }
+    .about-grid p strong { color: var(--text); font-weight: 600; }
+    .facts { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; font-family: var(--mono); font-size: 0.85rem; }
+    .facts .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+    .facts .row:last-child { border-bottom: none; }
+    .facts .k { color: var(--muted); }
+    .facts .v { color: var(--text); text-align: right; }
+
+    /* Linha do tempo */
+    .timeline { position: relative; margin-top: 12px; padding-left: 28px; border-left: 2px solid var(--border); }
+    .t-item { position: relative; margin-bottom: 36px; }
+    .t-item:last-child { margin-bottom: 0; }
+    .t-item::before { content: ""; position: absolute; left: -36px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+    .t-period { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); }
+    .t-item h3 { font-size: 1.15rem; margin: 4px 0 6px; }
+    .t-item p { color: var(--muted); }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color .2s ease, transform .2s ease; }
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .card .icon { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; margin-bottom: 12px; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 16px; }
+    .card .stack { display: flex; flex-wrap: wrap; gap: 6px; }
+    .card .stack span { font-family: var(--mono); font-size: 0.72rem; color: var(--accent-2); background: rgba(56, 189, 248, 0.08); padding: 3px 8px; border-radius: 4px; }
+
+    /* Metodologia */
+    .method-intro { color: var(--muted); max-width: 720px; margin-bottom: 36px; }
+    .method-intro strong { color: var(--text); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .step { border: 1px solid var(--border); border-radius: 10px; padding: 22px; background: var(--card); }
+    .step .n { font-family: var(--mono); font-size: 1.6rem; color: var(--accent); opacity: .8; }
+    .step h4 { margin: 6px 0 8px; font-size: 1rem; }
+    .step p { color: var(--muted); font-size: 0.92rem; }
+
+    /* Contato */
+    .contact { text-align: center; }
+    .contact p { color: var(--muted); max-width: 560px; margin: 0 auto 32px; }
+    .contact .btns { justify-content: center; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-family: var(--mono); font-size: 0.8rem; }
+
+    /* Animação ao rolar */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .prompt .cursor { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hero { padding: 72px 0 64px; }
+      section { padding: 64px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#topo" class="logo">maiara<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#trajetoria">Trajetória</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#metodologia">Metodologia</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="topo">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="prompt">$ whoami<span class="cursor"></span></div>
+        <h1>Olá, eu sou a Maiara.<br><span class="grad">Lidero times que modernizam produtos.</span></h1>
+        <p class="lead">
+          Líder de engenharia e qualidade em e-commerce. Conduzo projetos estratégicos de modernização —
+          da reescrita completa de apps à automação de testes mobile — com foco em execução, pessoas e entrega contínua.
+        </p>
+        <div class="tags">
+          <span class="tag">Engineering Leadership</span>
+          <span class="tag">Modernização de Legado</span>
+          <span class="tag">Flutter</span>
+          <span class="tag">Quality Engineering</span>
+          <span class="tag">Maestro</span>
+          <span class="tag">Mobile</span>
+        </div>
+        <div class="btns">
+          <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+          <a href="#contato" class="btn btn-ghost">Entrar em contato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="alt">
+      <div class="container about-grid reveal">
+        <div>
+          <div class="section-label">// sobre</div>
+          <h2>Engenharia, qualidade e liderança</h2>
+          <p>
+            Sou <strong>QA Engineer e Tech Lead na Dafiti</strong>, e-commerce de moda com operação no Brasil e na Colômbia,
+            onde também sou <strong>gestora do time de App Platform</strong>.
+          </p>
+          <p>
+            Nos últimos 4 anos, liderei os projetos estratégicos de <strong>modernização do app</strong>: a reescrita completa
+            do aplicativo nativo em Flutter, a modernização do carrinho e do login LATAM em todos os dispositivos.
+          </p>
+          <p>
+            Acredito que modernizar não é só trocar tecnologia — é reduzir risco, dar autonomia aos times e entregar valor
+            em ciclos curtos. Meu próximo passo é atuar como <strong>Engineering Manager</strong> em produtos de grande escala.
+          </p>
+        </div>
+        <div class="facts">
+          <div class="row"><span class="k">cargo</span><span class="v">QA Engineer / Tech Lead</span></div>
+          <div class="row"><span class="k">gestão</span><span class="v">Time App Platform</span></div>
+          <div class="row"><span class="k">empresa</span><span class="v">Dafiti</span></div>
+          <div class="row"><span class="k">mercados</span><span class="v">Brasil · Colômbia</span></div>
+          <div class="row"><span class="k">local</span><span class="v">Brasil</span></div>
+          <div class="row"><span class="k">idiomas</span><span class="v">Português · Inglês</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAJETÓRIA -->
+    <section id="trajetoria">
+      <div class="container reveal">
+        <div class="section-label">// trajetória</div>
+        <h2>Experiência</h2>
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-period">Atual</div>
+            <h3>Gestora do time App Platform · Dafiti</h3>
+            <p>Liderança do time responsável pela plataforma do aplicativo, com foco em arquitetura, qualidade e evolução contínua do app em Flutter.</p>
+          </div>
+          <div class="t-item">
+            <div class="t-period">Últimos 4 anos</div>
+            <h3>Gestora de Projetos Estratégicos · Dafiti</h3>
+            <p>Condução da modernização do app — reescrita completa do nativo para Flutter, novo carrinho e login LATAM em todos os dispositivos — coordenando múltiplos times e tribos.</p>
+          </div>
+          <div class="t-item">
+            <div class="t-period">Em paralelo</div>
+            <h3>QA Engineer / Tech Lead · Dafiti</h3>
+            <p>Definição da estratégia de qualidade mobile e da arquitetura de automação de testes com Maestro, alinhada à estrutura de tribos da empresa.</p>
+          </div>
+          <!-- Adicione aqui experiências anteriores copiando um bloco .t-item -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="alt">
+      <div class="container reveal">
+        <div class="section-label">// projetos</div>
+        <h2>Projetos de destaque</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="icon">01 / app</div>
+            <h3>App reescrito em Flutter</h3>
+            <p>Reescrita completa do aplicativo nativo da Dafiti em Flutter, unificando a base de código e acelerando a entrega de funcionalidades.</p>
+            <div class="stack"><span>Flutter</span><span>Mobile</span><span>Modernização</span></div>
+          </article>
+          <article class="card">
+            <div class="icon">02 / checkout</div>
+            <h3>Modernização do carrinho</h3>
+            <p>Nova experiência de carrinho em todos os dispositivos, peça central da jornada de compra do e-commerce.</p>
+            <div class="stack"><span>E-commerce</span><span>Multiplataforma</span></div>
+          </article>
+          <article class="card">
+            <div class="icon">03 / identidade</div>
+            <h3>Login LATAM</h3>
+            <p>Modernização do login para a operação na América Latina (Brasil e Colômbia), em todos os dispositivos.</p>
+            <div class="stack"><span>Autenticação</span><span>LATAM</span></div>
+          </article>
+          <article class="card">
+            <div class="icon">04 / qualidade</div>
+            <h3>Arquitetura de testes com Maestro</h3>
+            <p>Proposta de arquitetura de automação de testes mobile organizada por tribos (Purchase, Navigation, Postsale), com camada de dados em JS e plano de migração em fases.</p>
+            <div class="stack"><span>Maestro</span><span>JavaScript</span><span>CI</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+    <section id="metodologia">
+      <div class="container reveal">
+        <div class="section-label">// metodologia</div>
+        <h2>Fatia a Fatia</h2>
+        <p class="method-intro">
+          <strong>Fatia a Fatia</strong> é a metodologia que estou construindo para modernização de sistemas legados.
+          Ela nasce da minha experiência prática em projetos reais, combinada com referências de mercado, e tem um objetivo claro:
+          <strong>ensinar outros times a executar modernizações</strong> com segurança e previsibilidade.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="n">01</div>
+            <h4>Foco em execução</h4>
+            <p>Menos teoria, mais passos concretos que um time consegue aplicar amanhã.</p>
+          </div>
+          <div class="step">
+            <div class="n">02</div>
+            <h4>Entregas incrementais</h4>
+            <p>Substituir o legado em fatias, gerando valor a cada etapa e reduzindo risco.</p>
+          </div>
+          <div class="step">
+            <div class="n">03</div>
+            <h4>Híbrida</h4>
+            <p>Aprendizados de projetos reais somados às melhores práticas do mercado.</p>
+          </div>
+          <div class="step">
+            <div class="n">04</div>
+            <h4>Documento vivo</h4>
+            <p>Evolui a cada projeto — e é feita para ser compartilhada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="alt contact">
+      <div class="container reveal">
+        <div class="section-label">// contato</div>
+        <h2>Vamos conversar?</h2>
+        <p>Estou aberta a conversas sobre liderança de engenharia, modernização de produtos e qualidade de software.</p>
+        <div class="btns">
+          <a href="https://www.linkedin.com/in/SEU-USUARIO" class="btn btn-primary" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:seu-email@exemplo.com" class="btn btn-ghost">E-mail</a>
+          <a href="https://github.com/SEU-USUARIO" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="ano"></span> Maiara · feito com HTML & CSS · hospedado no GitHub Pages</div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
