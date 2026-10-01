@@ -103,6 +103,18 @@
     .t-period { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); }
     .t-item h3 { font-size: 1.15rem; margin: 4px 0 6px; }
     .t-item p { color: var(--muted); }
+    .t-list { list-style: none; margin-top: 12px; display: grid; gap: 6px; }
+    .t-list li { color: var(--muted); padding-left: 20px; position: relative; }
+    .t-list li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+    .t-item p + p { margin-top: 10px; }
+    .t-sub { font-family: var(--mono); font-size: 0.8rem; font-weight: 500; color: var(--accent); margin-top: 18px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; max-width: 560px; }
+    .metric { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+    .m-label { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
+    .m-values { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .m-from { color: var(--muted); text-decoration: line-through; font-size: 0.95rem; }
+    .m-arrow { color: var(--accent-2); }
+    .m-to { color: var(--accent); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; }
 
     /* Cards */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
@@ -207,8 +219,9 @@
             <strong>design system interno</strong>.
           </p>
           <p>
-            Antes disso, liderei por 4 anos os projetos estratégicos de modernização do app: a reescrita completa do
-            aplicativo nativo em Flutter e a modernização do carrinho e do login LATAM em todos os dispositivos.
+            Entreguei o novo app 100% Flutter, substituindo o legado nativo, e em 2025 fui gestora dos times da iniciativa
+            <strong>Lean Platform</strong>, que modernizou e unificou o carrinho e o login de Brasil e Colômbia. Antes disso, como
+            <strong>Chapter Lead Mobile</strong>, elevei a taxa de sessões sem crash do app para mais de 99,6% no iOS e no Android.
           </p>
           <p>
             Acredito que modernizar não é só trocar tecnologia: é reduzir risco, dar autonomia aos times e entregar valor
@@ -221,7 +234,7 @@
           <div class="row"><span class="k">empresa</span><span class="v">Dafiti</span></div>
           <div class="row"><span class="k">mercados</span><span class="v">Brasil · Colômbia</span></div>
           <div class="row"><span class="k">local</span><span class="v">Brasil</span></div>
-          <div class="row"><span class="k">idiomas</span><span class="v">Português · Inglês · Espanhol</span></div>
+          <div class="row"><span class="k">idiomas</span><span class="v">Português · Inglês</span></div>
         </div>
       </div>
     </section>
@@ -234,18 +247,45 @@
         <div class="timeline">
           <div class="t-item">
             <div class="t-period">Atual</div>
+            <h3>Tech Manager · Dafiti</h3>
             <p>Lidero as equipes App Platform e Web Platform, com 3 pessoas desenvolvedoras cada, em parceria com produto e negócio para entregar melhorias que facilitam o dia a dia dos demais times de desenvolvimento da empresa.</p>
-            <ul>
+            <ul class="t-list">
               <li>Entrega do novo app 100% Flutter, substituindo o legado em código nativo</li>
               <li>Governança de releases, qualidade e métricas de estabilidade</li>
               <li>Mentoria e acompanhamento de carreira do time</li>
             </ul>
-            
-            <p>Em 2025, atuei como gestora dos times envolvidos na iniciativa Lean Platform, voltada à modernização e unificação dos sistemas legados de Brasil e Colômbia, com foco nas etapas de carrinho e login:</p>
-            <ul>
+          </div>
+          <div class="t-item">
+            <div class="t-period">2025</div>
+            <h3>Gestora · Iniciativa Lean Platform · Dafiti</h3>
+            <p>Atuei como gestora dos times envolvidos na iniciativa Lean Platform, voltada à modernização e unificação dos sistemas legados de Brasil e Colômbia, com foco nas etapas de carrinho e login:</p>
+            <ul class="t-list">
               <li>Lean Cart (App) – Brasil</li>
               <li>Lean Login (App/Site) – LATAM</li>
             </ul>
+          </div>
+          <div class="t-item">
+            <div class="t-period">Julho de 2023 – Dezembro de 2024</div>
+            <h3>Chapter Lead Mobile · Dafiti</h3>
+            <p>Como Chapter Lead, atuei como facilitadora dos eventos do capítulo mobile, promovendo a troca de boas práticas de desenvolvimento e impulsionando a inovação tecnológica dentro da empresa.</p>
+            <p>Fui responsável por liderar a equipe de desenvolvedores da plataforma mobile, orientando-os na criação e manutenção de soluções que otimizam os fluxos de trabalho dos times de produto. Minha atuação abrange tanto o desenvolvimento em código nativo quanto Flutter, além da melhoria contínua dos processos de governança das releases do aplicativo.</p>
+            <p>Trabalho em colaboração próxima com coordenadores, gerentes de engenharia e gerentes de produto, garantindo um alinhamento estratégico para o refinamento, condução e execução da estratégia de rollout de novos produtos e projetos prioritários.</p>
+            <h4 class="t-sub">Principais conquistas</h4>
+            <ul class="t-list">
+              <li>Otimização do processo de release train, elevando a eficiência e a qualidade das entregas.</li>
+              <li>Treinamento e capacitação de novos desenvolvedores, impulsionando a expertise mobile na empresa.</li>
+              <li>Melhoria significativa na estabilidade do app, com aumento da taxa de sessões livres de crash:</li>
+            </ul>
+            <div class="metrics">
+              <div class="metric">
+                <div class="m-label">iOS · crash-free sessions</div>
+                <div class="m-values"><span class="m-from">90,78%</span><span class="m-arrow">→</span><span class="m-to">99,74%</span></div>
+              </div>
+              <div class="metric">
+                <div class="m-label">Android · crash-free sessions</div>
+                <div class="m-values"><span class="m-from">97,67%</span><span class="m-arrow">→</span><span class="m-to">99,64%</span></div>
+              </div>
+            </div>
           </div>
           <!-- Adicione aqui experiências anteriores copiando um bloco .t-item -->
         </div>
@@ -340,9 +380,9 @@
         <h2>Vamos conversar?</h2>
         <p>Estou aberta a conversas sobre liderança de engenharia, times de plataforma e modernização de produtos.</p>
         <div class="btns">
-          <a href="https://www.linkedin.com/in/maiara-garcia" class="btn btn-primary" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="mailto:maiaracamargo@gmail.com" class="btn btn-ghost">E-mail</a>
-          <a href="https://github.com/mgarcia88" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/SEU-USUARIO" class="btn btn-primary" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:seu-email@exemplo.com" class="btn btn-ghost">E-mail</a>
+          <a href="https://github.com/SEU-USUARIO" class="btn btn-ghost" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </section>
